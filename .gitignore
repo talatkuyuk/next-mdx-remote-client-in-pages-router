@@ -1,0 +1,6 @@
+.DS_Store
+.next
+certificates
+node_modules
+out
+package-lock.json

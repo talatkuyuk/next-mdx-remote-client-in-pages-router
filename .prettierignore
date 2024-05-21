@@ -1,0 +1,7 @@
+*.mdx
+*.md
+
+.next
+certificates
+node_modules
+out
