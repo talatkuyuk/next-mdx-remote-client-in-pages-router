@@ -48,7 +48,9 @@ export default function TestPage({ mdxSource }: Props) {
 export async function getStaticPaths() {
   const files = getMarkdownFiles();
 
-  const paths = files.map((filename) => ({
+  const article = (f: string) => f.includes("article");
+
+  const paths = files.filter(article).map((filename) => ({
     params: { slug: replaceLastDotWithDash(filename) },
   }));
 
