@@ -32,7 +32,7 @@ const remarkPlugins: PluggableList = [
       containerProperties: (type, title) => {
         return {
           ["data-type"]: type?.toLowerCase(),
-          ["data-title"]: toTitleCase(title) ?? toTitleCase(type),
+          ["data-title"]: title ?? toTitleCase(type),
         };
       },
     } as FlexibleContainerOptions,

@@ -163,11 +163,11 @@ li h6 {
   padding: 0;
 }
 
-ul.blog-pages-list {
+ul.test-pages {
   margin: 4px 0 4px 1rem;
 }
 
-ul.blog-pages-list li {
+ul.test-pages li {
   margin: 1rem 0;
   list-style-position: outside;
   padding-inline-start: 8px;
@@ -176,28 +176,41 @@ ul.blog-pages-list li {
   gap: 5px; */
 }
 
-ul.blog-pages-list a,
-ul.blog-pages-list a:visited,
-ul.blog-pages-list a:active {
-  padding: 2px 4px;
-  color: #1e1e80de;
-  background-color: rgb(252, 250, 230);
-  text-decoration: none;
-  box-shadow: 0px 1px 1px 0.5px lightgray;
+ul.test-pages a {
+  position: relative;
 }
 
-ul.blog-pages-list a:hover {
+ul.test-pages a,
+ul.test-pages a:visited,
+ul.test-pages a:active {
+  padding: 2px 4px;
+  color: #1e1e80de;
+  text-decoration: none;
+}
+
+ul.test-pages a:hover {
   background: tomato;
   color: white;
   box-shadow: 0px 10px 10px 0px gray;
 }
 
-ul.article-pages-list {
+ul.test-pages a::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  border-top: 3px solid tomato;
+  left: 0;
+  bottom: -2px;
+  border-radius: 50%;
+  height: 4px;
+}
+
+ul.articles {
   margin: 4px 0;
   list-style-type: none;
 }
 
-ul.article-pages-list li {
+ul.articles li {
   margin: 0.5rem 0;
   margin-left: -0.5rem;
   padding: 0.5rem;
@@ -206,25 +219,38 @@ ul.article-pages-list li {
   border-radius: 5px;
 }
 
-ul.article-pages-list li:hover {
-  background-color: rgb(249, 247, 247);
-  box-shadow: 0px 2px 2px 1px gray;
+ul.articles li:hover {
+  background-color: rgb(247, 247, 249);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
-ul.article-pages-list a,
-ul.article-pages-list a:visited,
-ul.article-pages-list a:active {
+ul.articles a {
+  position: relative;
+}
+
+ul.articles a,
+ul.articles a:visited,
+ul.articles a:active {
   padding: 2px 4px;
   color: #1e1e80de;
-  background-color: rgb(252, 250, 230);
   text-decoration: none;
-  box-shadow: 0px 1px 1px 0.5px lightgray;
 }
 
-ul.article-pages-list a:hover {
+ul.articles a:hover {
   background: tomato;
   color: white;
   box-shadow: 0px 10px 10px 0px gray;
+}
+
+ul.articles a::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  border-top: 3px solid tomato;
+  left: 0;
+  bottom: -10px;
+  border-radius: 50%;
+  height: 8px;
 }
 
 /*************************************/
