@@ -14,7 +14,7 @@ _Read in {readingTime}, written by **{frontmatter.author}**_
 The **`next-mdx-remote-client`** is a powerful library that allows you to =r=render MDX content== on the client side 
 or on the server side in a `Next.js` application.
 
-:::tip Dynamic MDX contents
+:::tip Dynamic MDX Contents
 This tool is also useful when you need to handle =g=dynamic MDX content== 
 fetched from an external API or any other source that isn't available at build time.
 :::
@@ -80,9 +80,9 @@ export default async (req, res) => {
   const mdxSource = await serialize({source, options: {
     disableImports: true,
     parseFrontmatter: true,
-	scope: {
+    scope: {
       readingTime: calculateSomeHow(source),
-	},
+    },
     mdxOptions: {
       remarkPlugins: [
         // ...

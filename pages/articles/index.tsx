@@ -10,17 +10,17 @@ export default function DynamicBlog({ posts }: Props) {
   return (
     <>
       <Head>
-        <title>Dynamic Blog</title>
+        <title>Articles</title>
       </Head>
       <div>
         <p>
-          <strong>Welcome to dynamic blog</strong>
+          <strong>Welcome to articles</strong>
         </p>
-        <ul className="article-pages-list">
+        <ul className="articles">
           {posts.map((post) => (
             <li key={post.title}>
               <strong>
-                <Link href={`/dynamic-blog/${post.slug}`}>{post.title}</Link>
+                <Link href={`/articles/${post.slug}`}>{post.title}</Link>
               </strong>
               <p>
                 <span>{String(post.date)}, </span>

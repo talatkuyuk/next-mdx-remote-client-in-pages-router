@@ -48,11 +48,11 @@ const Navbar = ({
   return (
     <div className="navbar">
       <div id="navbar-indicator" style={navbarIndicatorPosition} />
-      <Link href="/blog-pages" ref={elementRef} onClick={handleClick}>
-        Blog Pages
+      <Link href="/test-pages" ref={elementRef} onClick={handleClick}>
+        Test Pages
       </Link>
-      <Link href="/dynamic-blog" ref={elementRef} onClick={handleClick}>
-        Dynamic Blog
+      <Link href="/articles" ref={elementRef} onClick={handleClick}>
+        Articles
       </Link>
     </div>
   );
