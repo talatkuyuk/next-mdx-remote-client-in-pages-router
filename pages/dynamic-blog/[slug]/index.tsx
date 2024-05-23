@@ -10,7 +10,6 @@ import { readingTime } from "reading-time-estimator";
 import type { Frontmatter, Scope } from "@/types";
 import { plugins, remarkRehypeOptions } from "@/utils/mdx";
 import { getMarkdownFile, getMarkdownFiles } from "@/utils/file";
-import { replaceLastDotWithDash } from "@/utils";
 import { components } from "@/mdxComponents";
 import ErrorComponent from "@/components/ErrorComponent";
 
@@ -51,7 +50,8 @@ export async function getStaticPaths() {
   const article = (f: string) => f.includes("article");
 
   const paths = files.filter(article).map((filename) => ({
-    params: { slug: replaceLastDotWithDash(filename) },
+    // replace the last dot with dash in the filename for slug
+    params: { slug: filename.replace(/\.(?=[^.]*$)/, "-") },
   }));
 
   return { paths, fallback: false };

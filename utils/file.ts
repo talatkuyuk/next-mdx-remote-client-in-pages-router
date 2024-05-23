@@ -3,11 +3,7 @@ import path from "path";
 import { getFrontmatter } from "next-mdx-remote-client/utils";
 
 import type { Post, Frontmatter } from "@/types";
-import {
-  getMarkdownExtension,
-  replaceLastDashWithDot,
-  replaceLastDotWithDash,
-} from ".";
+import { getMarkdownExtension } from ".";
 
 export const RE = /\.mdx?$/u; // Only .md(x) files
 // text.replace(RE, "")
@@ -43,7 +39,8 @@ export const getMarkdownFile = async (
 > => {
   if (!/-mdx?$/.test(slug)) return;
 
-  const filename = replaceLastDashWithDot(slug) as
+  // replace the last dash with dot in the slug for filename
+  const filename = slug.replace(/-(?=[^-]*$)/, ".") as
     | `${string}.md`
     | `${string}.mdx`;
 
@@ -70,7 +67,8 @@ export const getPostInformation = (filename: string): Post | undefined => {
 
   const post: Post = {
     ...frontmatter,
-    slug: replaceLastDotWithDash(filename),
+    // replace the last dot with dash in the filename for slug
+    slug: filename.replace(/\.(?=[^.]*$)/, "-"),
   };
 
   return post;

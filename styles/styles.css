@@ -74,7 +74,7 @@ body {
 
 #navbar-indicator {
   height: 3px;
-  background-color: red;
+  background-color: tomato;
   position: absolute;
   bottom: 4px;
   transition: all 0.3s ease-out;
@@ -165,7 +165,6 @@ li h6 {
 
 ul.blog-pages-list {
   margin: 4px 0 4px 1rem;
-  list-style-type: "👉 ";
 }
 
 ul.blog-pages-list li {
@@ -192,6 +191,43 @@ ul.blog-pages-list a:hover {
   color: white;
   box-shadow: 0px 10px 10px 0px gray;
 }
+
+ul.article-pages-list {
+  margin: 4px 0;
+  list-style-type: none;
+}
+
+ul.article-pages-list li {
+  margin: 0.5rem 0;
+  margin-left: -0.5rem;
+  padding: 0.5rem;
+  padding-top: 1rem;
+  border: 1px solid silver;
+  border-radius: 5px;
+}
+
+ul.article-pages-list li:hover {
+  background-color: rgb(249, 247, 247);
+  box-shadow: 0px 2px 2px 1px gray;
+}
+
+ul.article-pages-list a,
+ul.article-pages-list a:visited,
+ul.article-pages-list a:active {
+  padding: 2px 4px;
+  color: #1e1e80de;
+  background-color: rgb(252, 250, 230);
+  text-decoration: none;
+  box-shadow: 0px 1px 1px 0.5px lightgray;
+}
+
+ul.article-pages-list a:hover {
+  background: tomato;
+  color: white;
+  box-shadow: 0px 10px 10px 0px gray;
+}
+
+/*************************************/
 
 div#mdx-layout {
   padding-inline: 0.5rem;
