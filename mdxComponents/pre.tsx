@@ -25,7 +25,7 @@ const pre = (props: React.ComponentPropsWithoutRef<"pre">) => {
 
   return (
     <pre ref={preRef} {...props} style={{ position: "relative" }}>
-      <span className="pre-language-label">{props.className?.slice(9)}</span>
+      <span className="pre-language-label">{props.className}</span>
       <button className="pre-copy-button" onClick={onCopy}>
         {copied ? (
           <IconDone fill="#fff" width="18px" height="18px" />

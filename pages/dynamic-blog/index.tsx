@@ -38,7 +38,10 @@ export default function DynamicBlog({ posts }: Props) {
 export const getStaticProps = () => {
   const files = getMarkdownFiles();
 
-  const posts = files.map(getPostInformation);
+  const article = (f: string) => f.includes("article");
+
+  // "getPostInformation" uses "getFrontmatter" utility without compiling the source !
+  const posts = files.filter(article).map(getPostInformation);
 
   return { props: { posts } };
 };
