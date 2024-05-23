@@ -1,17 +1,17 @@
 import Head from "next/head";
-import { MDXClient } from "next-mdx-remote-client";
 import {
   serialize,
   type SerializeOptions,
   type SerializeResult,
 } from "next-mdx-remote-client/serialize";
+import { MDXClient } from "next-mdx-remote-client";
 import { readingTime } from "reading-time-estimator";
 
+import type { Frontmatter, Scope } from "@/types";
+import { getMarkdownExtension } from "@/utils";
 import { plugins, remarkRehypeOptions } from "@/utils/mdx";
 import { getSource } from "@/utils/file";
-import { getMarkdownExtension } from "@/utils";
 import { components } from "@/mdxComponents";
-import type { Frontmatter, Scope } from "@/types";
 import ErrorComponent from "@/components/ErrorComponent";
 
 type Props = {
@@ -19,7 +19,7 @@ type Props = {
 };
 
 /**
- * For demonstration purpose, the both "hydrate" and "MDXClient" to be rendered
+ * The source is a markdown file NOT MDX
  */
 export default function TestPage({ mdxSource }: Props) {
   if (!mdxSource) {

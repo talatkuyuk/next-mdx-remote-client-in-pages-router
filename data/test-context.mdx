@@ -7,6 +7,8 @@ summary: "summary test context"
 
 import Bar from "../../../mdxComponents/Bar.mjs";
 
+**_{factorial(num) === 720 ? "export statements are active" : "export statements are disabled"}_**
+
 _Read in {readingTime}, written by **{frontmatter.author}**_
 
 # {frontmatter.title}
@@ -15,13 +17,17 @@ _Read in {readingTime}, written by **{frontmatter.author}**_
 
 ### Heading For Components
 
+<Hello name={props.foo} />
+
 <CountButton />
 
 <ContextConsumer />
 
-<Bar status={frontmatter.disableImports} />
+<ComponentFromOuterProvider />
 
 <Dynamic />
+
+<Bar className="i-am-imported-component" />
 
 ### Heading For Plugins
 

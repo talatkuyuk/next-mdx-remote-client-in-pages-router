@@ -1,28 +1,25 @@
 import Head from "next/head";
-import { MDXClient } from "next-mdx-remote-client";
 import {
   serialize,
   type SerializeOptions,
   type SerializeResult,
 } from "next-mdx-remote-client/serialize";
+import { hydrate } from "next-mdx-remote-client";
 import { readingTime } from "reading-time-estimator";
 
-import { plugins } from "@/utils/mdx";
-import { getSource } from "@/utils/file";
-import { getMarkdownExtension } from "@/utils";
-import { components } from "@/mdxComponents";
 import type { Frontmatter, Scope } from "@/types";
+import { getMarkdownExtension } from "@/utils";
+import { plugins, remarkRehypeOptions } from "@/utils/mdx";
+import { getSource } from "@/utils/file";
+import { components } from "@/mdxComponents";
 import ErrorComponent from "@/components/ErrorComponent";
-import DemoStateProvider from "@/contexts/DemoStateProvider";
 
 type Props = {
   mdxSource?: SerializeResult<Frontmatter, Scope>;
 };
 
 /**
- * For demonstration purpose, the both "hydrate" and "MDXClient" to be rendered
- *
- * implements a Context Provider usage
+ * The source is a markdown file NOT MDX
  */
 export default function TestPage({ mdxSource }: Props) {
   if (!mdxSource) {
@@ -33,37 +30,38 @@ export default function TestPage({ mdxSource }: Props) {
     return <ErrorComponent error={mdxSource.error} />;
   }
 
+  const { content, error } = hydrate({
+    ...mdxSource,
+    components,
+  });
+
   return (
     <>
       <Head>
         <title>{mdxSource.frontmatter.title}</title>
       </Head>
 
-      <DemoStateProvider>
-        <MDXClient
-          {...mdxSource}
-          components={components}
-          onError={ErrorComponent}
-        />
-      </DemoStateProvider>
+      {error ? <ErrorComponent error={error} /> : content}
     </>
   );
 }
 
 export async function getStaticProps() {
-  const file = "test-context.mdx";
+  const file = "test-markdown.md";
   const format = getMarkdownExtension(file);
   const source = await getSource(file);
 
   if (!source) return { props: {} };
 
   const options: SerializeOptions<Scope> = {
+    disableExports: true,
     disableImports: true,
     parseFrontmatter: true,
     scope: { readingTime: readingTime(source, 100).text },
     mdxOptions: {
       format,
       ...plugins,
+      remarkRehypeOptions,
     },
   };
 

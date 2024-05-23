@@ -4,7 +4,7 @@ import {
   type SerializeOptions,
   type SerializeResult,
 } from "next-mdx-remote-client/serialize";
-import { MDXClient, MDXProvider } from "next-mdx-remote-client";
+import { hydrate, MDXProvider } from "next-mdx-remote-client";
 import { readingTime } from "reading-time-estimator";
 
 import type { Frontmatter, Scope } from "@/types";
@@ -31,6 +31,14 @@ export default function TestPage({ mdxSource }: Props) {
     return <ErrorComponent error={mdxSource.error} />;
   }
 
+  const { content, mod, error } = hydrate({
+    ...mdxSource,
+    components,
+  });
+
+  // "mod" object refers to the exports from MDX
+  console.log(mod.num); // expect it to be 6
+
   return (
     <>
       <Head>
@@ -51,7 +59,7 @@ export default function TestPage({ mdxSource }: Props) {
       >
         <MDXProvider components={components}>
           <DemoStateProvider>
-            <MDXClient {...mdxSource} onError={ErrorComponent} />
+            {error ? <ErrorComponent error={error} /> : content}
           </DemoStateProvider>
         </MDXProvider>
       </MDXProvider>

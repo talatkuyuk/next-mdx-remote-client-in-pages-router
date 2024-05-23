@@ -11,6 +11,8 @@ I kept the document structure **the same** to see how markdown behaves to javasc
 
 import Bar from "../../../mdxComponents/Bar.mjs";
 
+**_{factorial(num) === 720 ? "export statements are active" : "export statements are disabled"}_**
+
 _Read in {readingTime}, written by **{frontmatter.author}**_
 
 # {frontmatter.title}
@@ -25,9 +27,9 @@ _Read in {readingTime}, written by **{frontmatter.author}**_
 
 <CountButton />
 
-<Bar status={frontmatter.disableImports} />
-
 <Dynamic />
+
+<Bar className="i-am-imported-component" />
 
 ### Heading For Plugins
 

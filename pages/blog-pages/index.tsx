@@ -8,41 +8,66 @@ export default function StaticBlog() {
         <title>Blog Pages</title>
       </Head>
       <div>
-        <strong>Wellcome to blog pages</strong>
-        <ul>
+        <p>
+          <strong>Welcome to blog pages</strong>
+        </p>
+        <p>
+          This part of the application is designed for supplying
+          <code>
+            <em> different options </em>
+          </code>
+          into <strong>next-mdx-remote-client</strong> to see its behaviour and
+          understanding how to implement a blog page with <code>MDXClient</code>{" "}
+          or <code>hydrate</code>.
+        </p>
+        <ul className="blog-pages-list">
           <li>
-            👉{" "}
-            <Link href="/blog-pages/test-basic">
-              Test Disabled Imports/Exports
-            </Link>{" "}
-            <span>(Author: foofoo)</span>
+            <strong>A blog page with disabled imports/exports</strong>
+            <div style={{ display: "flex", gap: "0.5rem" }}>
+              <Link href="/blog-pages/test-basic">MDXClient</Link>
+              {" or "}
+              <Link href="/blog-pages/test-basic/hydrate">hydrate</Link>
+            </div>
           </li>
           <li>
-            👉 <Link href="/blog-pages/test-context">Test Context</Link>{" "}
-            <span>(Author: barbar)</span>
+            <strong>A blog page with MDXProvider and context providers</strong>
+            <div style={{ display: "flex", gap: "0.5rem" }}>
+              <Link href="/blog-pages/test-provider">MDXClient</Link>
+              {" or "}
+              <Link href="/blog-pages/test-provider/hydrate">hydrate</Link>
+            </div>
           </li>
           <li>
-            👉 <Link href="/blog-pages/test-provider">Test Provider</Link>{" "}
-            <span>(Author: foofoo)</span>
+            <strong>A blog page with an error</strong>
+            <div style={{ display: "flex", gap: "0.5rem" }}>
+              <Link href="/blog-pages/test-error">MDXClient</Link>
+              {" or "}
+              <Link href="/blog-pages/test-error/hydrate">hydrate</Link>
+            </div>
           </li>
           <li>
-            👉 <Link href="/blog-pages/test-error">Test Error</Link>{" "}
-            <span>(Author: errorr)</span>
+            <strong>A blog page with Table of Content (TOC)</strong>
+            <div style={{ display: "flex", gap: "0.5rem" }}>
+              <Link href="/blog-pages/test-toc">MDXClient</Link>
+              {" or "}
+              <Link href="/blog-pages/test-toc/hydrate">hydrate</Link>
+            </div>
           </li>
           <li>
-            👉{" "}
-            <Link href="/blog-pages/test-toc">
-              Test Basic with Table of Content (TOC)
-            </Link>{" "}
-            <span>(Author: toctoc)</span>
+            <strong>A blog page written in markdown not MDX</strong>
+            <div style={{ display: "flex", gap: "0.5rem" }}>
+              <Link href="/blog-pages/test-markdown">MDXClient</Link>
+              {" or "}
+              <Link href="/blog-pages/test-markdown/hydrate">hydrate</Link>
+            </div>
           </li>
           <li>
-            👉 <Link href="/blog-pages/test-markdown">Test Markdown File</Link>{" "}
-            <span>(Author: markmark)</span>
-          </li>
-          <li>
-            👉 <Link href="/blog-pages/test-lazy">Test Lazy Hydration</Link>{" "}
-            <span>(Author: lazy)</span>
+            <strong>A blog page with lazy loading</strong>
+            <div style={{ display: "flex", gap: "0.5rem" }}>
+              <Link href="/blog-pages/test-lazy">MDXClientLazy</Link>
+              {" or "}
+              <Link href="/blog-pages/test-lazy/hydrate">hydrateLazy</Link>
+            </div>
           </li>
         </ul>
       </div>

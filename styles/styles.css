@@ -30,10 +30,57 @@ body {
 
 .main-wrapper {
   width: 98%;
-  max-width: 1024px;
+  max-width: 960px;
 
   margin: auto; /* center itself with in a grid parent */
 }
+
+/******** HEADER ********/
+
+.header {
+  margin-bottom: 1rem;
+  background-color: aliceblue;
+
+  display: flex;
+  position: relative;
+}
+
+.logo {
+  margin-right: 1rem;
+  cursor: pointer;
+}
+
+.logo a,
+.logo a:visited {
+  text-decoration: none;
+  color: black;
+}
+
+.logo img {
+  mix-blend-mode: multiply;
+  transform: scale(1.1);
+}
+
+.navbar {
+  position: relative;
+  margin-top: 2px;
+}
+
+.navbar a {
+  margin: 0 1rem;
+  text-decoration: none;
+  color: rgb(4, 40, 40);
+}
+
+#navbar-indicator {
+  height: 3px;
+  background-color: red;
+  position: absolute;
+  bottom: 4px;
+  transition: all 0.3s ease-out;
+}
+
+/******** CARD ********/
 
 .card {
   color: #6558d3;
@@ -55,42 +102,7 @@ body {
   color: #a69fd6;
 }
 
-.header {
-  margin-bottom: 1rem;
-
-  display: flex;
-  position: relative;
-}
-
-.logo {
-  margin-right: 1rem;
-  cursor: pointer;
-}
-
-.logo a,
-.logo a:visited {
-  text-decoration: none;
-  color: black;
-}
-
-.navbar {
-  position: relative;
-  margin-top: 2px;
-}
-
-.navbar a {
-  margin: 0 1rem;
-  text-decoration: none;
-  color: rgb(4, 40, 40);
-}
-
-#navbar-indicator {
-  height: 3px;
-  background-color: red;
-  position: absolute;
-  bottom: 4px;
-  transition: all 0.3s ease-out;
-}
+/******** TABLE ********/
 
 table td,
 th {
@@ -125,10 +137,12 @@ table.result code {
   white-space: pre-wrap;
 }
 
+/******** LISTS ********/
+
 ul {
   margin: 0;
   padding: 0;
-  list-style-type: lower-greek;
+  list-style-type: "👉 ";
 }
 
 li {
@@ -147,6 +161,36 @@ li h5,
 li h6 {
   margin: 0;
   padding: 0;
+}
+
+ul.blog-pages-list {
+  margin: 4px 0 4px 1rem;
+  list-style-type: "👉 ";
+}
+
+ul.blog-pages-list li {
+  margin: 1rem 0;
+  list-style-position: outside;
+  padding-inline-start: 8px;
+
+  /* display: grid;
+  gap: 5px; */
+}
+
+ul.blog-pages-list a,
+ul.blog-pages-list a:visited,
+ul.blog-pages-list a:active {
+  padding: 2px 4px;
+  color: #1e1e80de;
+  background-color: rgb(252, 250, 230);
+  text-decoration: none;
+  box-shadow: 0px 1px 1px 0.5px lightgray;
+}
+
+ul.blog-pages-list a:hover {
+  background: tomato;
+  color: white;
+  box-shadow: 0px 10px 10px 0px gray;
 }
 
 div#mdx-layout {

@@ -4,7 +4,7 @@ import {
   type SerializeOptions,
   type SerializeResult,
 } from "next-mdx-remote-client/serialize";
-import { MDXClient, MDXProvider } from "next-mdx-remote-client";
+import { hydrateLazy } from "next-mdx-remote-client";
 import { readingTime } from "reading-time-estimator";
 
 import type { Frontmatter, Scope } from "@/types";
@@ -13,14 +13,14 @@ import { plugins } from "@/utils/mdx";
 import { getSource } from "@/utils/file";
 import { components } from "@/mdxComponents";
 import ErrorComponent from "@/components/ErrorComponent";
-import DemoStateProvider from "@/contexts/DemoStateProvider";
 
 type Props = {
   mdxSource?: SerializeResult<Frontmatter, Scope>;
 };
 
 /**
- * implements MDXProvider and a Context Provider usage
+ *
+ * lazy loading with hydrateLazy
  */
 export default function TestPage({ mdxSource }: Props) {
   if (!mdxSource) {
@@ -31,36 +31,27 @@ export default function TestPage({ mdxSource }: Props) {
     return <ErrorComponent error={mdxSource.error} />;
   }
 
+  const { content, mod, error } = hydrateLazy({
+    ...mdxSource,
+    components,
+  });
+
+  // "mod" object refers to the exports from MDX
+  console.log(mod.num); // expect it to be 6
+
   return (
     <>
       <Head>
         <title>{mdxSource.frontmatter.title}</title>
       </Head>
-      <MDXProvider
-        components={{
-          ComponentFromOuterProvider: () => {
-            return (
-              <div className="outer-content">
-                <p style={{ color: "darkorange" }}>
-                  *** I am a component coming from outer MDXProvider ***
-                </p>
-              </div>
-            );
-          },
-        }}
-      >
-        <MDXProvider components={components}>
-          <DemoStateProvider>
-            <MDXClient {...mdxSource} onError={ErrorComponent} />
-          </DemoStateProvider>
-        </MDXProvider>
-      </MDXProvider>
+
+      {error ? <ErrorComponent error={error} /> : content}
     </>
   );
 }
 
 export async function getStaticProps() {
-  const file = "test-context.mdx";
+  const file = "test-basic.mdx";
   const format = getMarkdownExtension(file);
   const source = await getSource(file);
 

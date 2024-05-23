@@ -2,19 +2,16 @@ import Head from "next/head";
 import {
   serialize,
   type SerializeOptions,
-} from "next-mdx-remote-client/serialize";
-import {
-  hydrateLazy,
-  MDXClientLazy,
   type SerializeResult,
-} from "next-mdx-remote-client/csr";
+} from "next-mdx-remote-client/serialize";
+import { MDXClientLazy } from "next-mdx-remote-client";
 import { readingTime } from "reading-time-estimator";
 
+import type { Frontmatter, Scope } from "@/types";
 import { getMarkdownExtension } from "@/utils";
 import { plugins } from "@/utils/mdx";
 import { getSource } from "@/utils/file";
 import { components } from "@/mdxComponents";
-import type { Frontmatter, Scope } from "@/types";
 import ErrorComponent from "@/components/ErrorComponent";
 
 type Props = {
@@ -22,21 +19,17 @@ type Props = {
 };
 
 /**
- * This page is experimental for importing a module specified in the mdx on the client side
  *
- * For demonstration purpose, the both "hydrate" and "MDXClient" to be rendered
+ * lazy loading with MDXClientLazy
  */
 export default function TestPage({ mdxSource }: Props) {
   if (!mdxSource) {
     return <ErrorComponent error="The source could not found !" />;
   }
 
-  if ("error" in mdxSource) return <ErrorComponent error={mdxSource.error} />;
-
-  const { content, mod, error } = hydrateLazy({
-    ...mdxSource,
-    components,
-  });
+  if ("error" in mdxSource) {
+    return <ErrorComponent error={mdxSource.error} />;
+  }
 
   return (
     <>
@@ -44,15 +37,11 @@ export default function TestPage({ mdxSource }: Props) {
         <title>{mdxSource.frontmatter.title}</title>
       </Head>
 
-      <>
-        {error ? <ErrorComponent error={error} /> : content}
-
-        <MDXClientLazy
-          {...mdxSource}
-          components={components}
-          onError={ErrorComponent}
-        />
-      </>
+      <MDXClientLazy
+        {...mdxSource}
+        components={components}
+        onError={ErrorComponent}
+      />
     </>
   );
 }
