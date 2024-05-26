@@ -1,53 +1,47 @@
 import Head from "next/head";
 
-type Repository = {
-  name: string;
-};
-
-export default function About({ data }: { data: Repository }) {
+export default function Home() {
   return (
     <>
       <Head>
-        <title>About Page</title>
+        <title>Home Page</title>
       </Head>
       <main>
-        <h4 style={{ marginBottom: "0.5rem" }}>
-          Demo for &nbsp;
+        <p>
+          This is a <strong>blog application</strong> using{" "}
+          <strong>next-mdx-remote-client</strong> in{" "}
+          <code>Next.js pages router</code>.
+        </p>
+        <p>
+          Visit for&nbsp;
+          <a
+            href="https://github.com/talatkuyuk/next-mdx-remote-client-in-pages-router"
+            target="_blank"
+          >
+            source code
+          </a>{" "}
+          on github.
+        </p>
+        <p>
+          The <code>next-mdx-remote-client</code> is a wrapper of the{" "}
+          <code>@mdx-js/mdx</code> in order to load MDX content. You can reach
+          the package on{" "}
           <a
             href="https://www.npmjs.com/package/next-mdx-remote-client"
             target="_blank"
           >
-            next-mdx-remote-client
-          </a>
-        </h4>
-        <div className="card">
-          <p>
-            <span>FRAMEWORK</span>
-            <strong>{data.name}</strong>
-          </p>
-          <p>
-            <span>ENVIRONMENT</span>
-            <strong>{process.env.NODE_ENV}</strong>
-          </p>
-        </div>
-        <p style={{ marginTop: "0.5rem" }}>
-          Visit for &nbsp;
+            npm
+          </a>{" "}
+          or visit the repository on{" "}
           <a
-            href="https://github.com/talatkuyuk/demo-next-mdx-remote-client"
+            href="https://github.com/ipikuka/next-mdx-remote-client"
             target="_blank"
           >
-            source code in github
+            github
           </a>
+          .
         </p>
       </main>
     </>
   );
-}
-
-export async function getStaticProps() {
-  // for demo purpose
-  const res = await fetch("https://api.github.com/repos/vercel/next.js");
-  const data: Repository = await res.json();
-
-  return { props: { data } };
 }

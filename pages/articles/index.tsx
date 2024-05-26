@@ -16,6 +16,49 @@ export default function DynamicBlog({ posts }: Props) {
         <p>
           <strong>Welcome to articles</strong>
         </p>
+        <p>
+          This part of the application is designed for understanding how to
+          implement a blog application with
+          <strong> next-mdx-remote-client</strong>.
+        </p>
+        <p>
+          Visit for&nbsp;
+          <a
+            href="https://github.com/talatkuyuk/next-mdx-remote-client-in-pages-router"
+            target="_blank"
+          >
+            source code
+          </a>{" "}
+          on github.
+        </p>
+        <div>
+          In the github repository, you can see how to
+          <ul>
+            <li>
+              implement listing the articles using <code>getStaticPaths</code>{" "}
+              and <code>getStaticProps</code>,
+            </li>
+            <li>
+              get <code>frontmatters</code> without compiling the souce while
+              listing the articles,
+            </li>
+            <li>
+              implement a simple but powerful&nbsp;
+              <code>table of content (TOC)</code>,
+            </li>
+            <li>
+              implement automatic MDX <code>syntax error</code> handling,
+            </li>
+            <li>
+              provide options to <code>next-mdx-remote-client</code>.
+            </li>
+          </ul>
+        </div>
+        <p>
+          For simpicity and demonstration purpose, I created the articles
+          via&nbsp;
+          <code>chatGPT</code>.
+        </p>
         <ul className="articles">
           {posts.map((post) => (
             <li key={post.title}>

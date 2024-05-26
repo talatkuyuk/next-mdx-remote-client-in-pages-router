@@ -3,7 +3,7 @@ title: "An Introduction to Next.js"
 author: "chatGPT"
 date: May 23, 2024
 summary: |
-         I prompted to chatGPT saying that write an article about "next.js" including headings, 
+         I prompted to chatGPT saying that write an article about "next.js" including markdown headings, 
          inline codes, code fences, containers, bold, italic texts, blockquotes, lists etc.		
 ---
 
@@ -57,8 +57,7 @@ export default Page;
 ### API Routes
 Next.js allows you to create API endpoints within your application, providing a seamless way to handle backend logic.
 
-```jsx
-// pages/api/hello.js
+```javascript:pages/api/hello.js
 export default function handler(req, res) {
   res.status(200).json({ message: 'Hello World' });
 }
@@ -67,8 +66,7 @@ export default function handler(req, res) {
 ### File-based Routing
 Next.js uses a file-based routing system, simplifying the process of creating and managing routes.
 
-```jsx
-// pages/index.js
+```jsx:pages/index.jsx
 const HomePage = () => {
   return <h1>Home Page</h1>;
 };
@@ -88,8 +86,7 @@ npm run dev
 ## Building Components
 Components are the building blocks of a Next.js application. Here's an example of a simple component:
 
-```jsx
-// components/MyComponent.js
+```jsx:components/MyComponent.jsx
 const MyComponent = () => {
   return <div>Hello, Next.js!</div>;
 };
@@ -98,8 +95,7 @@ export default MyComponent;
 ```
 To use this component in a page:
 
-```jsx
-// pages/index.js
+```jsx:pages/index.jsx
 import MyComponent from '../components/MyComponent';
 
 const HomePage = () => {
@@ -118,26 +114,29 @@ export default HomePage;
 `Next.js` supports various styling options including **`CSS Modules`** and **`styled-jsx`**.
 
 ### CSS Modules
-```jsx
-// styles/Home.module.css
+```jsx:styles/Home.module.css
 .container {
   padding: 20px;
   background-color: #f0f0f0;
 }
+```
 
-// pages/index.js
+```jsx:pages/index.jsx
 import styles from '../styles/Home.module.css';
 
 const HomePage = () => {
-  return <div className={styles.container}>Welcome to Next.js</div>;
+  return (
+    <div className={styles.container}>
+      Welcome to Next.js
+    </div>
+  ); 
 };
 
 export default HomePage;
 ```
 
 ### Styled JSX
-```jsx
-// pages/index.js
+```jsx:pages/index.jsx
 const HomePage = () => {
   return (
     <div>

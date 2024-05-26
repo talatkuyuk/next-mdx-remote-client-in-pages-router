@@ -2,7 +2,7 @@
 title: "How to use next-mdx-remote-client for dynamic MDX contents"
 author: "chatGPT"
 date: May 23, 2024
-summary: I prompted to chatGPT saying that write a markdown article about "next-mdx-remote-client" published on npm.
+summary: I prompted to chatGPT saying that write a markdown/MDX article about "next-mdx-remote-client" published on npm.
 ---
 
 _Read in {readingTime}, written by **{frontmatter.author}**_
@@ -11,11 +11,10 @@ _Read in {readingTime}, written by **{frontmatter.author}**_
 
 <Toc toc={toc} ordered indented maxDepth={3} tight />
 
-The **`next-mdx-remote-client`** is a powerful library that allows you to =r=render MDX content== on the client side 
-or on the server side in a `Next.js` application.
+The **`next-mdx-remote-client`** is a powerful library that allows you to =r=render MDX content== in a `Next.js` application.
 
 :::tip Dynamic MDX Contents
-This tool is also useful when you need to handle =g=dynamic MDX content== 
+`next-mdx-remote-client` is also useful when you need to handle `dynamic MDX content` 
 fetched from an external API or any other source that isn't available at build time.
 :::
 
@@ -35,44 +34,46 @@ yarn add next-mdx-remote-client
 ### Basic Setup
 First, import the library and use it in your component:
 
-```typescript
+```typescript:pages/demo.tsx
 import { useState, useEffect } from 'react';
 import { MDXClient, type SerializeResult } from 'next-mdx-remote-client';
 
 const { components } from "../mdxComponents"
 
-const MyMDXComponent = () => {
-  const [mdxContent, setMdxContent] = useState<SerializeResult | null>(null);
+export default function Page() {
+  const [mdxSource, setMdxSource] = useState<SerializeResult | null>(null);
 
   useEffect(() => {
     // Fetch the MDX content from your API
     const fetchData = async () => {
       const res = await fetch('/api/mdx-content');
       const data = await res.json();
-      setMdxContent(data);
+      setMdxSource(data);
     };
     fetchData();
   }, []);
 
-  if (!mdxContent) {
+  if (!mdxSource) {
     return <div>Loading...</div>;
   }
 
-  if ("error" in mdxContent) {
-	return <div>{mdxContent.error.message}</div>;
+  if ("error" in mdxSource) {
+    return <div>{mdxSource.error.message}</div>;
   }
 
-  return <MDXClient {...mdxContent} components={components} />;
+  return (
+    <MDXClient
+      {...mdxSource}
+      components={components}
+    />
+  );
 };
-
-export default MyMDXComponent;
 ```
 
 ### Fetching and Serializing MDX Content in API
 To =r=fetch and serialize== MDX content, you can use a server-side function or an API route in `Next.js`:
 
-```javascript
-// pages/api/mdx-content.js
+```javascript:pages/api/mdx-content.js
 import { serialize } from 'next-mdx-remote-client/serialize';
 
 export default async (req, res) => {

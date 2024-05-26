@@ -46,7 +46,7 @@ body {
 }
 
 .logo {
-  margin-right: 1rem;
+  margin-right: 1.8rem;
   cursor: pointer;
 }
 
@@ -67,7 +67,7 @@ body {
 }
 
 .navbar a {
-  margin: 0 1rem;
+  margin: 0 1.2rem;
   text-decoration: none;
   color: rgb(4, 40, 40);
 }
@@ -78,28 +78,6 @@ body {
   position: absolute;
   bottom: 4px;
   transition: all 0.3s ease-out;
-}
-
-/******** CARD ********/
-
-.card {
-  color: #6558d3;
-  background-color: #f1eeff;
-  width: fit-content;
-  padding: 0.5rem 1rem;
-  border-radius: 0.5rem;
-
-  display: flex;
-}
-
-.card p {
-  display: grid;
-  margin: 1rem;
-}
-
-.card p span {
-  font-size: 75%;
-  color: #a69fd6;
 }
 
 /******** TABLE ********/
@@ -168,12 +146,15 @@ ul.test-pages {
 }
 
 ul.test-pages li {
-  margin: 1rem 0;
+  margin: 2rem 0;
   list-style-position: outside;
   padding-inline-start: 8px;
+}
 
-  /* display: grid;
-  gap: 5px; */
+ul.test-pages .test-pages-link-container {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
 }
 
 ul.test-pages a {
@@ -332,6 +313,12 @@ pre {
   font-size: 110%;
   background-color: aliceblue;
   padding: 0.5rem 1rem;
+
+  display: grid;
+}
+
+pre > code {
+  overflow-x: auto;
 }
 
 :not(pre) > code {
@@ -402,7 +389,7 @@ blockquote span {
 }
 
 .remark-code-title {
-  background-color: #367af6;
+  background-color: #527dcd;
   color: white;
-  padding-left: 1rem;
+  padding: 2px 0 4px 1rem;
 }
