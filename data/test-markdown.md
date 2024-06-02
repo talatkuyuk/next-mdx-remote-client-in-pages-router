@@ -35,7 +35,7 @@ _Read in {readingTime}, written by **{frontmatter.author}**_
 
 #### SubHeading For Flexible Markers
 
-Marked texts: ==text with **yellow**==, =r=text with **red**==, =g=text with **green**==, and =b=text with **blue**==.
+Marked texts: ==text with **yellow** phrase==, =r=text with **red** phrase==, =g=text with **green** phrase==, and =b=text with **blue** phrase==.
 
 #### SubHeading For Emojies
 
@@ -112,8 +112,6 @@ Autolink www.example.com and `inline code`.
 + List item with Normal text
 + List item with **Bold text**
 + List item with *Italic text*
-+ #### Heading-4 in list
-+ ##### Heading-5 in list
 
 #### SubHeading For Escapes
 
@@ -133,8 +131,8 @@ escape opening curlybraces "\{}"
 
 #### SubHeading For Blockquates
 
+=b=blockquate markdown element==
 > The `@import` is used to **import style rules** from other valid stylesheets.
-> <span>=g=blockquate markdown element==</span>
 
 <BlockQuote>
   A custom `remark-rehype` handler made all React Components stripped out, including this. If would not, what would happened? All component names are lowercased by `rehype-raw` via `parse5` parser. This component name also would became `blockquote` luckily after lowercased and would be valid HTML tag as well. Additionally If I put empty lines inside, markdown syntax will work in the `blockquote` block-level HTML element. <span>=g=blockquate html element==</span>

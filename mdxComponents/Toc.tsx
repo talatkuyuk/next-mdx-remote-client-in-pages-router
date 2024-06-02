@@ -1,5 +1,3 @@
-"use client";
-
 import { clsx } from "clsx";
 import type { TocItem, HeadingDepth, HeadingParent } from "remark-flexible-toc";
 
@@ -83,9 +81,11 @@ const Toc = ({
             <a href={heading.href}>
               <div className={`h${heading.depth}`}>
                 {ordered ? (
-                  <span className={styles["numbering"]}>
-                    {heading.numbering.slice(1).join(".")}.
-                  </span>
+                  <strong>
+                    <span className={styles["numbering"]}>
+                      {heading.numbering.slice(1).join(".")}.
+                    </span>
+                  </strong>
                 ) : null}
                 <span className={styles["heading"]}>{heading.value}</span>
                 <span className={styles["href"]}>{heading.href}</span>

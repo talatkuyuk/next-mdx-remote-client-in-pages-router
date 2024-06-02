@@ -1,8 +1,6 @@
-"use client";
-
-import Link from "next/link";
-import { usePathname } from "next/navigation";
 import React, { useCallback, Dispatch, SetStateAction } from "react";
+import { usePathname } from "next/navigation";
+import Link from "next/link";
 
 type Props = {
   navbarIndicatorPosition?:

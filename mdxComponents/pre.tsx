@@ -1,6 +1,4 @@
-"use client";
-
-import React, { ElementRef, useRef, useState } from "react";
+import React, { type ElementRef, useRef, useState } from "react";
 
 import IconContentCopy from "@/components/icons/IconContentCopy";
 import IconDone from "@/components/icons/IconDone";
@@ -28,9 +26,9 @@ const pre = (props: React.ComponentPropsWithoutRef<"pre">) => {
       <span className="pre-language-label">{props.className}</span>
       <button className="pre-copy-button" onClick={onCopy}>
         {copied ? (
-          <IconDone fill="#fff" width="18px" height="18px" />
+          <IconDone fill="var(--text-weak)" width="18px" height="18px" />
         ) : (
-          <IconContentCopy fill="#fff" width="18px" height="18px" />
+          <IconContentCopy fill="var(--text-weak)" width="18px" height="18px" />
         )}
       </button>
       {props.children}

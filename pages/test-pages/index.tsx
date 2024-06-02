@@ -1,6 +1,8 @@
 import Head from "next/head";
 import Link from "next/link";
 
+import VisitGithub from "@/components/VisitGithub";
+
 export default function StaticBlog() {
   return (
     <>
@@ -20,16 +22,7 @@ export default function StaticBlog() {
           behaviour and understanding how to implement a blog page with{" "}
           <code>MDXClient</code> or <code>hydrate</code>.
         </p>
-        <p>
-          Visit for&nbsp;
-          <a
-            href="https://github.com/talatkuyuk/next-mdx-remote-client-in-pages-router"
-            target="_blank"
-          >
-            source code
-          </a>{" "}
-          on github.
-        </p>
+        <VisitGithub />
         <ul className="test-pages">
           <li>
             <strong>A blog page with disabled imports/exports</strong>

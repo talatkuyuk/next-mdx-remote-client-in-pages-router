@@ -1,5 +1,6 @@
 import type { AppProps } from "next/app";
 import { Inter } from "next/font/google";
+import { ThemeProvider } from "next-themes";
 
 import { ErrorBoundary } from "next/dist/client/components/error-boundary";
 
@@ -20,12 +21,14 @@ export default function App({ Component, pageProps }: AppProps) {
         }
       `}</style>
       <div className="main-wrapper">
-        <Header />
-        <ErrorBoundary
-          errorComponent={(state) => <ErrorComponent error={state.error} />}
-        >
-          <Component {...pageProps} />
-        </ErrorBoundary>
+        <ThemeProvider enableSystem={false}>
+          <Header />
+          <ErrorBoundary
+            errorComponent={(state) => <ErrorComponent error={state.error} />}
+          >
+            <Component {...pageProps} />
+          </ErrorBoundary>
+        </ThemeProvider>
       </div>
     </>
   );

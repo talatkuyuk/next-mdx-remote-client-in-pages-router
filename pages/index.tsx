@@ -1,5 +1,7 @@
 import Head from "next/head";
 
+import VisitGithub from "@/components/VisitGithub";
+
 export default function Home() {
   return (
     <>
@@ -12,16 +14,7 @@ export default function Home() {
           <strong>next-mdx-remote-client</strong> in{" "}
           <code>Next.js pages router</code>.
         </p>
-        <p>
-          Visit for&nbsp;
-          <a
-            href="https://github.com/talatkuyuk/next-mdx-remote-client-in-pages-router"
-            target="_blank"
-          >
-            source code
-          </a>{" "}
-          on github.
-        </p>
+        <VisitGithub />
         <p>
           The <code>next-mdx-remote-client</code> is a wrapper of the{" "}
           <code>@mdx-js/mdx</code> in order to load MDX content. You can reach

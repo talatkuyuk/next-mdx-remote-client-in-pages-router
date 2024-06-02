@@ -3,6 +3,7 @@ import Head from "next/head";
 
 import type { Post } from "@/types";
 import { getPostInformation, getMarkdownFiles } from "@/utils/file";
+import VisitGithub from "@/components/VisitGithub";
 
 type Props = { posts: Post[] };
 
@@ -21,26 +22,17 @@ export default function DynamicBlog({ posts }: Props) {
           implement a blog application with
           <strong> next-mdx-remote-client</strong>.
         </p>
-        <p>
-          Visit for&nbsp;
-          <a
-            href="https://github.com/talatkuyuk/next-mdx-remote-client-in-pages-router"
-            target="_blank"
-          >
-            source code
-          </a>{" "}
-          on github.
-        </p>
+        <VisitGithub />
         <div>
           In the github repository, you can see how to
           <ul>
             <li>
-              implement listing the articles using <code>getStaticPaths</code>{" "}
-              and <code>getStaticProps</code>,
+              implement listing articles using <code>getStaticPaths</code> and{" "}
+              <code>getStaticProps</code>,
             </li>
             <li>
               get <code>frontmatters</code> without compiling the souce while
-              listing the articles,
+              listing articles,
             </li>
             <li>
               implement a simple but powerful&nbsp;
@@ -55,9 +47,11 @@ export default function DynamicBlog({ posts }: Props) {
           </ul>
         </div>
         <p>
-          For simpicity and demonstration purpose, I created the articles
-          via&nbsp;
-          <code>chatGPT</code>.
+          <em>
+            For simpicity and demonstration purpose, I created the content of
+            the articles via&nbsp;
+            <code>chatGPT</code>.
+          </em>
         </p>
         <ul className="articles">
           {posts.map((post) => (

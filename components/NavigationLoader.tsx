@@ -1,5 +1,3 @@
-"use client";
-
 import React, { type CSSProperties } from "react";
 import { useRouter } from "next/router";
 import BeatLoader from "react-spinners/BeatLoader";
@@ -42,15 +40,17 @@ export default function NavigationLoader() {
 
   const cssOverride: CSSProperties = {
     position: "absolute",
-    top: "0.5rem",
-    right: "1rem",
-    borderColor: "red",
+    top: "50%",
+    transform: "translateY(-50%)",
+    right: "3rem",
+    borderColor: "var(--error)",
   };
 
   return (
     <BeatLoader
       loading={isLoading}
-      color="#36d7b7"
+      color="var(--greenary)"
+      size={10}
       cssOverride={cssOverride}
       aria-label="Loading Spinner"
       data-testid="loader"
