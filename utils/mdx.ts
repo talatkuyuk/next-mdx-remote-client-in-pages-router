@@ -9,6 +9,7 @@ import remarkFlexibleContainers, {
 } from "remark-flexible-containers";
 import remarkFlexibleParagraphs from "remark-flexible-paragraphs";
 import remarkFlexibleToc from "remark-flexible-toc";
+import remarkInsert from "remark-ins";
 import rehypeRaw from "rehype-raw";
 import rehypeHighlight from "rehype-highlight";
 import rehypeSlug from "rehype-slug";
@@ -21,6 +22,7 @@ import { html } from "./rehype-handlers";
 
 const remarkPlugins: PluggableList = [
   remarkGfm,
+  remarkInsert,
   remarkFlexibleMarkers, // order of plugins matters
   remarkEmoji,
   remarkFlexibleParagraphs,
