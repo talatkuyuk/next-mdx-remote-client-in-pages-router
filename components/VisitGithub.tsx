@@ -1,8 +1,8 @@
 import React from "react";
 
-const VisitGithub = () => {
+const VisitGithub = (props: React.ComponentPropsWithoutRef<"p">) => {
   return (
-    <p>
+    <p {...props}>
       Visit github for&nbsp;
       <a
         href="https://github.com/talatkuyuk/next-mdx-remote-client-in-pages-router"

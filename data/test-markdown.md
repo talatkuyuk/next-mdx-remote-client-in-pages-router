@@ -109,9 +109,9 @@ Autolink www.example.com and `inline code`.
 
 #### SubHeading for Lists
 
-+ List item with Normal text
-+ List item with **Bold text**
-+ List item with *Italic text*
++ List item with normal text
++ List item with **bold text**
++ List item with *italic text*
 
 #### SubHeading For Escapes
 

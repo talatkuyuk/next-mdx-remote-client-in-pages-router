@@ -5,7 +5,7 @@ type Props = {
 export default function ErrorComponent({ error }: Props) {
   return (
     <div id="mdx-error">
-      <pre style={{ color: "red" }}>
+      <pre style={{ color: "var(--error)" }}>
         <code>{typeof error === "string" ? error : error.message}</code>
       </pre>
     </div>

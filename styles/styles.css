@@ -38,7 +38,7 @@ svg {
   --marked-blue: #a8d1ff;
   --marked-yellow: #fff2a8;
   --marked-red: #ffb7b7;
-  --inline-code: rgb(234, 233, 233);
+  --inline-code: rgb(241, 241, 241);
   --scrollbar-thumb: rgb(203, 203, 203);
   --scrollbar-track: rgb(237, 232, 228);
   --label-background: rgb(210, 245, 140);
@@ -177,7 +177,7 @@ svg {
   --marked-blue: #0074d9;
   --marked-yellow: #b58b00;
   --marked-red: #ce2029;
-  --inline-code: rgb(22, 23, 23);
+  --inline-code: rgb(44, 44, 44);
   --scrollbar-thumb: #666;
   --scrollbar-track: #444;
   --label-background: rgb(80, 92, 56);
@@ -253,13 +253,27 @@ body {
   margin: auto; /* center itself with in a grid parent */
 }
 
+.next-mdx-remote-client {
+  color: transparent;
+  opacity: 0.7;
+  background-image: linear-gradient(to top left, #000, #71717a, #e4e4e7);
+  background-clip: text;
+  font-weight: 500;
+  font-size: clamp(1.6rem, 8vw, 5rem);
+  letter-spacing: -0.05em;
+  text-align: center;
+}
+
+[data-theme="dark"] .next-mdx-remote-client {
+  background-image: linear-gradient(to top left, #fff, #d4d4d8, #3f3f46);
+}
+
 /******** HEADER ********/
 
 .header {
   padding: 4px 0;
   margin-bottom: 1rem;
   background-color: var(--surface2);
-
   transition: box-shadow 0.1s ease;
 
   position: sticky;
@@ -273,22 +287,6 @@ body {
   box-shadow: 0 4px 2px -2px var(--background-blur);
 
   transition: box-shadow 0.1s ease;
-}
-
-.logo {
-  margin-right: 3rem;
-  cursor: pointer;
-}
-
-.logo a,
-.logo a:visited {
-  text-decoration: none;
-  color: var(--text-default);
-}
-
-.logo img {
-  mix-blend-mode: multiply;
-  transform: scale(1.1);
 }
 
 .navbar {
@@ -355,7 +353,7 @@ li h6 {
 /******** PAGES & ARTICLES ********/
 
 ul.test-pages {
-  margin: 4px 0 4px 1rem;
+  margin: 4px 0 4px 1.5rem;
   list-style-type: "👉 ";
 }
 
@@ -363,7 +361,7 @@ ul.test-pages li {
   margin: 2rem 0;
 
   list-style-position: outside;
-  padding-inline-start: 8px;
+  padding-left: 0.5rem;
 }
 
 ul.test-pages .test-pages-link-container {
@@ -563,6 +561,8 @@ pre > code {
 :not(pre) > code {
   padding-inline: 2px;
   background-color: var(--inline-code);
+  color: var(--ifm-color-emphasis-800);
+  font-weight: 600;
 }
 
 .remark-code-container pre {
@@ -627,8 +627,9 @@ blockquote code {
 .remark-code-title {
   padding: 2px 0 4px 1rem;
   color: var(--text-weak);
+  font-size: 95%;
   background-color: var(--code-titlebar);
   border: 1px solid var(--text-veryweak);
   border-top-left-radius: 5px;
-  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
 }
