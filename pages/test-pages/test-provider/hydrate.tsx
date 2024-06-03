@@ -50,7 +50,7 @@ export default function TestPage({ mdxSource }: Props) {
             return (
               <div className="outer-content">
                 <p style={{ color: "darkorange" }}>
-                  *** I am a component coming from outer MDXProvider ***
+                  I am a component coming from outer MDXProvider
                 </p>
               </div>
             );
