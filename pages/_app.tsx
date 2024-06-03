@@ -1,6 +1,7 @@
 import type { AppProps } from "next/app";
 import { Inter } from "next/font/google";
 import { ThemeProvider } from "next-themes";
+import { motion } from "framer-motion";
 
 import { ErrorBoundary } from "next/dist/client/components/error-boundary";
 
@@ -12,7 +13,7 @@ import "@/styles/hljs.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export default function App({ Component, pageProps }: AppProps) {
+export default function App({ Component, pageProps, router }: AppProps) {
   return (
     <>
       <style jsx global>{`
@@ -26,7 +27,14 @@ export default function App({ Component, pageProps }: AppProps) {
           <ErrorBoundary
             errorComponent={(state) => <ErrorComponent error={state.error} />}
           >
-            <Component {...pageProps} />
+            <motion.div
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 100 }}
+              transition={{ type: "easeIn", duration: 0.4 }}
+              key={router.asPath}
+            >
+              <Component {...pageProps} />
+            </motion.div>
           </ErrorBoundary>
         </ThemeProvider>
       </div>
