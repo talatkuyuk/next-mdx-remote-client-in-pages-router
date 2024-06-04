@@ -65,6 +65,16 @@ export default function StaticBlog() {
             </div>
           </li>
           <li>
+            <strong>
+              A blog page getting dynamic content not available at build time
+            </strong>
+            <div className="test-pages-link-container">
+              <Link href="/test-pages/test-dynamic">MDXClient</Link>
+              {" or "}
+              <Link href="/test-pages/test-dynamic/hydrate">hydrate</Link>
+            </div>
+          </li>
+          <li>
             <strong>A blog page with lazy loading</strong>
             <div className="test-pages-link-container">
               <Link href="/test-pages/test-lazy">MDXClientLazy</Link>

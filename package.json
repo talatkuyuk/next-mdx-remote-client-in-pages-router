@@ -1,7 +1,7 @@
 {
   "name": "next-mdx-remote-client-in-pages-router",
   "version": "1.0.0",
-  "private": true,
+  "public": true,
   "scripts": {
     "dev": "next dev",
     "dev:dev": "NODE_ENV=development next dev",
