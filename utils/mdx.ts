@@ -1,5 +1,4 @@
 import { type PluggableList } from "unified";
-import { nodeTypes } from "@mdx-js/mdx";
 import remarkGfm from "remark-gfm";
 import remarkEmoji from "remark-emoji";
 import remarkFlexibleMarkers from "remark-flexible-markers";
@@ -19,6 +18,15 @@ import recmaMdxChangeProps from "recma-mdx-change-props";
 
 import { toTitleCase } from ".";
 import { html } from "./rehype-handlers";
+
+// from @mdx-js/mdx
+const nodeTypes = [
+  "mdxFlowExpression",
+  "mdxJsxFlowElement",
+  "mdxJsxTextElement",
+  "mdxTextExpression",
+  "mdxjsEsm",
+];
 
 const remarkPlugins: PluggableList = [
   remarkGfm,
