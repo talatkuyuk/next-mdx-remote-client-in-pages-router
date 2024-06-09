@@ -10,6 +10,7 @@ import { readingTime } from "reading-time-estimator";
 import type { Frontmatter, Scope } from "@/types";
 import { getMarkdownExtension } from "@/utils";
 import { plugins } from "@/utils/mdx";
+import { expect } from "@/utils/expect";
 import { getSource } from "@/utils/file";
 import { components } from "@/mdxComponents";
 import ErrorComponent from "@/components/ErrorComponent";
@@ -36,8 +37,9 @@ export default function TestPage({ mdxSource }: Props) {
     components,
   });
 
+  // just for testing exports from MDX source
   // "mod" object refers to the exports from MDX
-  console.log(mod.num); // expect it to be 6
+  expect((mod.factorial as Function)?.(mod.num)).toEqual(720);
 
   return (
     <>

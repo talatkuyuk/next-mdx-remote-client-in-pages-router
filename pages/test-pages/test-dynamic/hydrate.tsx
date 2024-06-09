@@ -3,6 +3,7 @@ import Head from "next/head";
 import { hydrate, type SerializeResult } from "next-mdx-remote-client";
 
 import type { Frontmatter, Scope } from "@/types";
+import { expect } from "@/utils/expect";
 import { components } from "@/mdxComponents";
 import ErrorComponent from "@/components/ErrorComponent";
 import LoadingComponent from "@/components/LoadingComponent";
@@ -39,8 +40,9 @@ export default function TestPage() {
     components,
   });
 
+  // just for testing exports from MDX source
   // "mod" object refers to the exports from MDX
-  console.log(mod.num); // expect it to be 6
+  expect((mod.factorial as Function)?.(mod.num)).toEqual(720);
 
   return (
     <>
