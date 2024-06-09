@@ -7,11 +7,11 @@ import VisitGithub from "@/components/VisitGithub";
 
 type Props = { posts: Post[] };
 
-export default function DynamicBlog({ posts }: Props) {
+export default function Articles({ posts }: Props) {
   return (
     <>
       <Head>
-        <title>Articles</title>
+        <title>Ipikuka Articles</title>
       </Head>
       <div>
         <p>
@@ -80,7 +80,10 @@ export const getStaticProps = () => {
   const article = (f: string) => f.includes("article");
 
   // "getPostInformation" uses "getFrontmatter" utility without compiling the source !
-  const posts = files.filter(article).map(getPostInformation);
+  const posts = files
+    .filter(article)
+    .map(getPostInformation)
+    .filter((post): post is Post => post !== undefined);
 
   return { props: { posts } };
 };

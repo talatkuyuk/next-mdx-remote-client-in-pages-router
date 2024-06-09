@@ -18,7 +18,7 @@ type Props = {
 };
 
 /**
- * For demonstration purpose, the both "hydrate" and "MDXClient" to be rendered
+ * "MDXClient" to be rendered
  */
 export default function TestPage({ mdxSource }: Props) {
   if (!mdxSource) {

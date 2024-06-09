@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Home Page</title>
+        <title>Ipikuka Blog Main Page</title>
       </Head>
       <main style={{ display: "grid", justifyItems: "center" }}>
         <p style={{ marginBottom: "0", textAlign: "center" }}>
