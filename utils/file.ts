@@ -34,7 +34,7 @@ export const getMarkdownFiles = (): string[] => {
 /**
  * get the source and format from a slug !
  */
-export const getMarkdownFile = async (
+export const getMarkdownFromSlug = async (
   slug: string
 ): Promise<
   | {

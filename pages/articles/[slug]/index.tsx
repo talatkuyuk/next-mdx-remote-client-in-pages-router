@@ -9,7 +9,7 @@ import { readingTime } from "reading-time-estimator";
 
 import type { Frontmatter, Scope } from "@/types";
 import { plugins, remarkRehypeOptions } from "@/utils/mdx";
-import { getMarkdownFile, getMarkdownFiles } from "@/utils/file";
+import { getMarkdownFromSlug, getMarkdownFiles } from "@/utils/file";
 import { components } from "@/mdxComponents";
 import ErrorComponent from "@/components/ErrorComponent";
 
@@ -58,11 +58,11 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }: { params: { slug: string } }) {
-  const result = await getMarkdownFile(params.slug);
+  const file = await getMarkdownFromSlug(params.slug);
 
-  if (!result) return { props: {} };
+  if (!file) return { props: {} };
 
-  const { source, format } = result;
+  const { source, format } = file;
 
   const options: SerializeOptions<Scope> = {
     disableImports: true, // import statements in MDX don't work in pages router

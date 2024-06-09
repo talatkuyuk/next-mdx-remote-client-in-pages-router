@@ -38,7 +38,7 @@ export default function TestPage({ mdxSource }: Props) {
 
   // just for testing exports from MDX source
   // "mod" object refers to the exports from MDX
-  expect(mod).toEqual({}); // due to disabled exports
+  expect(mod).toEqual({}); // it is empty object due to disabled exports
 
   return (
     <>
