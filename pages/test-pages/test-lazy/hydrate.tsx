@@ -39,7 +39,10 @@ export default function TestPage({ mdxSource }: Props) {
 
   // just for testing exports from MDX source
   // "mod" object refers to the exports from MDX
-  expect((mod.factorial as Function)?.(mod.num)).toEqual(720);
+  // this check is necessary due to lazy loading
+  if (Object.keys(mod).length > 0) {
+    expect((mod.factorial as Function)?.(mod.num)).toEqual(720);
+  }
 
   return (
     <>
