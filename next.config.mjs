@@ -2,11 +2,11 @@
 const nextConfig = {
   reactStrictMode: true,
 
-  // comment below if no need static export
-  output: "export",
-  images: {
-    unoptimized: true,
-  },
+  /* uncomment below if need static export */
+  // output: "export",
+  // images: {
+  //   unoptimized: true,
+  // },
 };
 
 export default nextConfig;
