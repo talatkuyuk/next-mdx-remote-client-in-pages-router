@@ -22,7 +22,7 @@
     "next-themes": "^0.3.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-spinners": "^0.13.8",
+    "react-spinners": "^0.14.0",
     "reading-time-estimator": "^1.11.0",
     "recma-mdx-change-props": "^1.1.1",
     "recma-mdx-escape-missing-components": "^1.1.0",
@@ -43,11 +43,11 @@
     "unified": "^11.0.5"
   },
   "devDependencies": {
-    "@types/node": "^20",
+    "@types/node": "^20.14.9",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "eslint": "^8",
     "eslint-config-next": "14.2.4",
-    "typescript": "^5"
+    "typescript": "^5.5"
   }
 }
