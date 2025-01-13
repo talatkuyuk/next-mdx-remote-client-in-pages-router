@@ -37,8 +37,8 @@ export default function TestPage({ mdxSource }: Props) {
     components,
   });
 
-  // just for testing exports from MDX source
-  // "mod" object refers to the exports from MDX
+  // just for testing exports from MDX source, "mod" object refers to the exports from MDX
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-function-type
   expect((mod.factorial as Function)?.(mod.num)).toEqual(720);
 
   return (
