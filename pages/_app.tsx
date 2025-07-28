@@ -30,7 +30,7 @@ export default function App({ Component, pageProps, router }: AppProps) {
             <motion.div
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 100 }}
-              transition={{ type: "easeIn", duration: 0.4 }}
+              transition={{ ease: "easeIn", duration: 0.4 }}
               key={router.asPath}
             >
               <Component {...pageProps} />
