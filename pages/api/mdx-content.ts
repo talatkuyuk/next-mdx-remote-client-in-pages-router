@@ -20,7 +20,7 @@ const handler: NextApiHandler = async (request, response) => {
   const options: SerializeOptions<Scope> = {
     disableImports: true,
     parseFrontmatter: true,
-    scope: { readingTime: readingTime(source, 100).text },
+    scope: { readingTime: readingTime(source, { wordsPerMinute: 100 }).text },
     vfileDataIntoScope: ["toc"], // the "remark-flexible-toc" plugin produces vfile.data.toc
     mdxOptions: {
       format,

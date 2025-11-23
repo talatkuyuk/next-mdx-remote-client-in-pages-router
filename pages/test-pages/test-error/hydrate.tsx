@@ -56,7 +56,7 @@ export async function getStaticProps() {
   const options: SerializeOptions<Scope> = {
     disableImports: true,
     parseFrontmatter: true,
-    scope: { readingTime: readingTime(source, 100).text },
+    scope: { readingTime: readingTime(source, { wordsPerMinute: 100 }).text },
     mdxOptions: {
       format,
       ...plugins,

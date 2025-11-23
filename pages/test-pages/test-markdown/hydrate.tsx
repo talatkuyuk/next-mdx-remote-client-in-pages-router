@@ -56,7 +56,7 @@ export async function getStaticProps() {
   const options: SerializeOptions<Scope> = {
     parseFrontmatter: true,
     // actually scope is useless in markdown, just to show it is effectless
-    scope: { readingTime: readingTime(source, 100).text },
+    scope: { readingTime: readingTime(source, { wordsPerMinute: 100 }).text },
     mdxOptions: {
       format,
       ...plugins,
