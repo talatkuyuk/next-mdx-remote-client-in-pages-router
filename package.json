@@ -1,6 +1,6 @@
 {
   "name": "next-mdx-remote-client-in-pages-router",
-  "version": "1.0.17",
+  "version": "1.0.18",
   "public": true,
   "scripts": {
     "dev": "next dev",
